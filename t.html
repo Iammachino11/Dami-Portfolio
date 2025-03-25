@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Light/Dark Theme Toggle</title>
+  <style>
+    /* Basic theme colors and sizing */
+    :root {
+      --light-bg: #ffffff;
+      --light-text: #000000;
+      --dark-bg:  #000000;
+      --dark-text: #ffffff;
+      
+      --toggle-width: 60px;
+      --toggle-height: 30px;
+      --toggle-handle-size: 26px;
+    }
+
+    /* Smooth transitions for theme changes */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    /* Container for label + toggle + label */
+    .toggle-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      font-weight: 600;
+    }
+
+    /* Hide the checkbox itself */
+    #theme-checkbox {
+      display: none;
+    }
+
+    /* The toggle’s track */
+    .toggle {
+      position: relative;
+      width: var(--toggle-width);
+      height: var(--toggle-height);
+      background: #eee;
+      border-radius: var(--toggle-height);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    /* The toggle’s circular handle, with sun/moon icons inside */
+    .toggle-handle {
+      position: absolute;
+      top: 2px; 
+      left: 2px;
+      width: var(--toggle-handle-size);
+      height: var(--toggle-handle-size);
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+
+    /* Icons inside the handle */
+    .icon-sun, .icon-moon {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .icon-sun {
+      opacity: 1; /* sun is visible by default */
+    }
+
+    /* Change track and handle positions when checked */
+    #theme-checkbox:checked + .toggle {
+      background: #555;
+    }
+    #theme-checkbox:checked + .toggle .toggle-handle {
+      transform: translateX(calc(var(--toggle-width) - var(--toggle-handle-size) - 4px));
+    }
+
+    /* Swap sun/moon icons */
+    #theme-checkbox:checked + .toggle .icon-sun {
+      opacity: 0;
+    }
+    #theme-checkbox:checked + .toggle .icon-moon {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-wrapper">
+    <span>LIGHT</span>
+    
+    <!-- The checkbox that toggles the theme -->
+    <input type="checkbox" id="theme-checkbox" />
+    
+    <!-- The styled toggle switch -->
+    <label for="theme-checkbox" class="toggle">
+      <div class="toggle-handle">
+        <span class="icon-sun">&#9728;</span>  <!-- Sun symbol -->
+        <span class="icon-moon">&#9790;</span> <!-- Moon symbol -->
+      </div>
+    </label>
+    
+    <span>DARK</span>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById('theme-checkbox');
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('dark', checkbox.checked);
+    });
+  </script>
+
+</body>
+</html>

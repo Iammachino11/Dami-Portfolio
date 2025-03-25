@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="google-fonts.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav>
+        <h2>Dami</h2>
+        <ul>
+            <li><a href="#hero-section" class="smoothScroll nav-link" id="home-link">Home</a></li>
+            <li><a href="#project-section" class="smoothScroll nav-link" id="project-link">Projects</a></li>
+            <li><a href="#skill-section" class="smoothScroll nav-link" id="skills-link">Skills</a></li>
+            <li class="nav-link" id="about-link">About Me</li>
+            <li class="nav-link" id="contact-link">Contact</li>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                <img src="images/light-theme-icon.svg" alt="" class="svg lightThemeImg">
+                <img src="images/dark-theme-icon.svg" alt="" class="svg darkThemeImg">
+            </label>
+        </ul>
+        <button class="hamMenu">≡</button>
+    </nav>
+    <section id="home-section">
+        <section class="heroSection" id="hero-section">
+            <div class="heroLeft">
+                <h1>Hi, I'm <span>Damilola</span></h1>
+                <h2>Front end <span>Developer</span></h2>
+                <p>Passionate about creating clean and efficient user friendly application.</p>
+                <div class="CTAButtons">
+                    <button class="buttonStyle1"><span>VIEW MY RESUME</span></button>
+                    <a href="#project-section" class="buttonStyle2 smoothScroll">VIEW MY WORK</a>
+                </div>
+                <div class="socialsLink">
+                    <a href=""><img src="images/GitHub.svg" alt="" class="svg socialIcon"></a>
+                    <a href=""><img src="images/linked-in-icon.svg" alt="" class="svg socialIcon"></a>
+                    <a href=""><img src="images/twitter-icon.svg" alt="" class="svg socialIcon"></a>
+                </div>
+            </div>
+            <div class="heroRight">
+                <div class="pulse">
+                    <img src="images/distort.svg" alt="" class="svg pulses" style="--i:0 ;">
+                    <img src="images/distort.svg" alt="" class="svg pulses" style="--i:1 ;">
+                    <img src="images/distort.svg" alt="" class="svg pulses" style="--i:2 ;">
+                    <img src="images/distort.svg" alt="" class="svg pulses" style="--i:3 ;">
+                    <img src="images/distort.svg" alt="" class="svg pulses" style="--i:4 ;">
+                </div>
+                <div class="pfp">
+                    <img src="images/Dami1.jpg" alt="">
+                </div>
+              </div>
+        </section>
+        <section class="projectsSection" id="project-section">
+            <h1>My <span>Projects</span></h1>
+
+            <div class="projectsContainer">
+               <!-- PROJECTS ARE BE ADDED HERE DYNAMICALLY -->
+                
+            </div>
+
+        </section>
+        <section class="skillsSection" id="skill-section">
+            <h1>My <span>Skills</span></h1>
+            <div class="skillsContainer">
+               <!-- SKILLS ARE BE ADDED HERE DYNAMICALLY -->
+               <h2 class="skillCategory">Front End <span></span></h2>
+               <div class="frontEndSkills">
+
+            </div>
+            <h2 class="skillCategory">Back End</h2>
+            <div class="backEndSkills">
+                
+
+            </div>
+            <h2 class="skillCategory">Others</h2>
+            <div class="otherSkills">
+
+            </div>
+            </div>
+            
+        </section>
+    </section>
+    <section class="aboutSection" id="about-section">
+        <div class="aboutSectionHeader">
+            <div class="aboutHeaderLeft">
+                <h2>Michael Damilola</h2>
+                <p>Front-end Developer</p>
+            </div>
+            <a href="mailto:">machino11.m11@gmail.com</a>
+        </div>
+
+        <div class="aboutBody">
+            <div class="aboutImgcontainer">
+                <img src="images/Dami2.jpg" alt="">
+            </div>
+            <div class="aboutMe">
+                <h1>Hi, I'm Dami 👋🏽</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatibus amet odio repellendus pariatur ducimus fuga reiciendis, ipsam cumque, iste error nisi saepe expedita dignissimos veritatis. Quis, numquam at. Molestias sit veniam totam nesciunt doloremque veritatis ad tempora, maxime voluptate itaque fuga? Voluptatibus non cupiditate unde illum id praesentium adipisci?</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, exercitationem deserunt? Ipsam ipsa consequatur nemo, tempore quod doloremque ullam, quia laborum quaerat amet, sed perspiciatis qui sint consectetur adipisci in officiis. Vero itaque iure voluptas, ab asperiores error voluptates fugiat.</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="contactMe" id="contact-section">
+        <h1>CONTACT</h1>
+    </section>
+    <script src="jQueryv3.7.1.js"></script>
+    <script src="embed-svg.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
