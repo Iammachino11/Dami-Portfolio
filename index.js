@@ -31,7 +31,7 @@ $('#about-link, #contact-link').click(function(){
     }
   });
   
-  $('#home-link, #project-link, #skills-link').click(function(e){
+  $('#home-link, #project-link, #project-link-2, #skills-link').click(function(e){
     e.preventDefault();
     $('#about-section, #contact-section').hide();
     $('#home-section').show();
@@ -188,7 +188,7 @@ const skills = [
     },
     {
         category: 'frontend',
-        icon: 'images/css-icon.svg',
+        icon: 'images/css-Icon.svg',
         name: 'CSS3',
         percentage: 96,
         description: ' Expert-level in creating modular, reusable, and visually appealing CSS styles, with strong knowledge of CSS3, flexbox, grid, and media queries. Styling websites with colors, spacing, smooth transitions, animations'
@@ -216,7 +216,7 @@ const skills = [
     },
     {
         category: 'frontend',
-        icon: 'images/typeScript-icon.svg',
+        icon: 'images/typeScript-Icon.svg',
         name: 'TypeScript',
         percentage: 45,
         description: 'Familiar with TypeScript basics, including type annotations, interfaces, and classes, with a growing understanding of its benefits for large-scale applications'
@@ -237,7 +237,7 @@ const skills = [
     },
     {
         category: 'others',
-        icon: 'images/Git-icon.svg',
+        icon: 'images/Git-Icon.svg',
         name: 'Git',
         percentage: 63,
         description: 'Proficient in using Git for version control, collaboration, and workflow management, including experience with branching, merging, and resolving conflicts'

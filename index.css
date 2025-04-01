@@ -22,6 +22,7 @@
     --button-hover-color: #fff;
     --shadow-color: rgba(128, 128, 128, 0.2);
     --error-color: #ef4444;
+    --link-color: #21a7a9;
   }
   
   [data-theme="dark"] {
@@ -39,6 +40,7 @@
     --button-hover-color: #000;
     --shadow-color: rgba(0, 0, 0, 0.3);
     --error-color: #c45a5a;
+    --link-color: #26a8b7;
   }
 
 /* ============================================ BUTTON STYLES HERE ============================================= */
@@ -866,6 +868,11 @@ input:checked~.lightThemeImg{
     margin-top: 30px;
     color: var(--text-color2);
 }
+
+.aboutMe a{
+    color: var(--link-color);
+}
+
 
 
 
