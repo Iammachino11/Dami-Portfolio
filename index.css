@@ -144,6 +144,7 @@ body{
     background-color: var(--primary-light-theme);
     color: var(--text-color);
     scroll-behavior: smooth;
+    transition: 0.5s background-color ease, 0.5s color ease;
 }
 
 
@@ -294,14 +295,14 @@ nav ul li a:hover{
 }
 
 input:checked + .slider {
-    background-color: var(--primary-light-theme);
-    box-shadow: inset 1px 1px 2px rgba(81, 81, 81, 0.5), inset -1px -1px 2px rgb(0, 0, 0);
+    background-color: #1d1d1d;
+    box-shadow: inset 1px 1px 5px rgba(24, 24, 24, 0.5), inset -1px -1px 5px rgba(49, 49, 49, 0.5);
     /* border: none; */
 }
 
 
 input:checked + .slider::before {
-    background-color: var(--primary-light-theme);
+    background-color: var(--nav-bg);
 }
 
 
@@ -826,7 +827,7 @@ input:checked~.lightThemeImg{
     justify-content: space-between;
     margin-top: 100px;
     font-family: 'Poppins', sans-serif;
-}
+}   
 
 .aboutHeaderLeft h2{
     font-family: 'Montserrat', sans-serif;
@@ -873,9 +874,6 @@ input:checked~.lightThemeImg{
     color: var(--link-color);
 }
 
-
-
-
 .aboutImgcontainer{
     min-width: 200px;
     min-height: 200px;
@@ -890,6 +888,77 @@ input:checked~.lightThemeImg{
 
 .aboutMe{
     width: 700px;
+}
+
+.contactMe{
+    min-height: 100vh;
+    height: 100%;
+    padding: 40px;
+}
+
+.contactMe h1{
+    margin: 100px 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+}
+
+.contactInfoContainer{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contactInfo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins',sans-serif;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--max-light-theme);
+}
+
+.contactInfo p~span{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px;
+}
+.contactInfo a{
+    color: var(--text-color);
+}
+
+
+.contactInfo span{
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.contactInfo span .icon{
+    height: 15px;
+    width: 15px;
+    color: var(--primary-light-theme2);
+}
+
+.QRcode{
+    width: auto;
+    color: var(--primary-light-theme2);
+}
+
+.contactIcon{
+    width: 60px;
+    color: var(--primary-light-theme2);
+
 }
 
 @media (max-width: 880px) {
@@ -1103,7 +1172,7 @@ input:checked~.lightThemeImg{
         top: unset;
         bottom: 20px;
         width: 320px;
-        background-color: white;
+        background-color: var(--max-light-theme);
         box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.3);
         transform: translate(-50%, -50%);
         border-radius: 8px;
@@ -1248,7 +1317,7 @@ input:checked~.lightThemeImg{
     .aboutBody{
         gap: 20px;
         padding: 10px;
-        height: 65vh;
+        height: 100vh;
         flex-wrap: wrap;
         color: var(--text-color);
         justify-content: right;
@@ -1288,6 +1357,61 @@ input:checked~.lightThemeImg{
     }
     .aboutMe p{
         font-size: 14px;
+    }
+
+    .contactMe{
+        padding: 20px;
+    }
+    
+    .contactMe h1{
+        margin: 100px 0 20px 0;
+    }
+
+    .contactInfoContainer{
+        align-items: stretch; /* ensures children stretch vertically */
+    }
+    
+    .contactInfo{
+        width: 300px;
+        height: 200px;
+        border-radius: 10px;
+        flex-grow: 1;
+    }
+
+    .contactInfo:nth-of-type(2){
+        order: -1;
+        width: 300px;
+        height: 300px;
+        flex-grow: 1;
+    }
+    
+    .contactInfo p~span{
+        font-size: 13px;
+    }
+    .contactInfo a{
+        color: var(--text-color);
+    }
+    
+    
+    .contactInfo span{
+        gap: 5px;
+    }
+    
+    .contactInfo span .icon{
+        height: 15px;
+        width: 15px;
+        color: var(--primary-light-theme2);
+    }
+    
+    .QRcode{
+        width: auto;
+        color: var(--primary-light-theme2);
+    }
+    
+    .contactIcon{
+        width: 60px;
+        color: var(--primary-light-theme2);
+    
     }
 }
   

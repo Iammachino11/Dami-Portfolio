@@ -23,18 +23,18 @@ $('#about-link, #contact-link').click(function(){
 
     if(this.id === 'about-link'){
         $('#about-link').addClass('active');
-        $('#about-section').show();
+        $('#about-section').fadeIn(500);
 
     } else {
         $('#contact-link').addClass('active');
-        $('#contact-section').show();
+        $('#contact-section').fadeIn(500);
     }
   });
   
   $('#home-link, #project-link, #project-link-2, #skills-link').click(function(e){
     e.preventDefault();
     $('#about-section, #contact-section').hide();
-    $('#home-section').show();
+    $('#home-section').fadeIn(500);
     var target = $(this).attr('href');
     if(target && $(target).length){
         $('html, body').animate({scrollTop: $(target).offset().top}, 500);
@@ -94,11 +94,10 @@ $('#about-link, #contact-link').click(function(){
             description: "Hotel Booking Website, with booking, room gallery, and cancel booking functionality",
             tags: ["Jquery", "Jsp", "Java", "Web Servlet"],
             liveDemo: "#",
-            sourceCode: "#"
+            sourceCode: "https://github.com/Iammachino11/NIIT_SEM_2_Project.git"
         },
     ];
 
-    // SVG templates
     const icons = {
         github: `<svg class="icon" viewBox="0 0 250 250">
             <path fill="currentColor" d="M124.92 2.85c67.88,0 122.92,55.04 122.92,122.93 0,56.58 -38.23,104.22 -90.27,118.52 0,-0.11 -0.01,-0.23 -0.01,-0.36 0,-4.29 0.17,-18.38 0.17,-35.86 0,-12.2 -4.17,-20.17 -8.84,-24.21 29,-3.23 59.45,-14.29 59.45,-64.51 0,-14.27 -5.04,-25.94 -13.39,-35.08 1.34,-3.31 5.81,-16.6 -1.29,-34.6 0,0 -10.92,-3.51 -35.77,13.4 -10.4,-2.9 -21.54,-4.35 -32.6,-4.4 -11.08,0.05 -22.22,1.5 -32.61,4.4 -24.87,-16.91 -35.81,-13.4 -35.81,-13.4 -7.08,18 -2.61,31.29 -1.27,34.6 -8.33,9.14 -13.4,20.81 -13.4,35.08 0,50.1 30.4,61.31 59.31,64.61 -3.72,3.27 -7.09,9.03 -8.27,17.48 -7.42,3.35 -26.28,9.11 -37.9,-10.86 0,0 -6.88,-12.55 -19.94,-13.48 0,0 -12.72,-0.16 -0.89,7.95 0,0 8.53,4.02 14.45,19.12 0,0 7.64,25.43 43.87,17.53 0.06,10.91 0.18,19.13 0.18,22.23 0,0.19 -0.01,0.38 -0.04,0.56 -52.4,-14.07 -90.98,-61.89 -90.98,-118.72 0,-67.89 55.04,-122.93 122.93,-122.93z"/>
@@ -161,7 +160,7 @@ $('#about-link, #contact-link').click(function(){
         };
 
         handleEmptyLink('.liveDemoLink', 'This project does not have a live demo');
-        handleEmptyLink('.sourceCodeLink', 'Source code to this project is unavailable');
+        handleEmptyLink('.sourceCodeLink', 'Source code is unavailable for this project');
 
         return $project;
     }
@@ -211,14 +210,14 @@ const skills = [
         category: 'frontend',
         icon: 'images/React-icon.svg',
         name: 'React',
-        percentage: 8,
+        percentage: 5,
         description: ' Basic understanding of React fundamentals, including components, props, and state, with a room for further learning and development'
     },
     {
         category: 'frontend',
         icon: 'images/typeScript-Icon.svg',
         name: 'TypeScript',
-        percentage: 45,
+        percentage: 31,
         description: 'Familiar with TypeScript basics, including type annotations, interfaces, and classes, with a growing understanding of its benefits for large-scale applications'
     },
     {
