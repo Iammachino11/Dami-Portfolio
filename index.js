@@ -224,7 +224,7 @@ const skills = [
         category: 'backend',
         icon: 'images/Java-icon.svg',
         name: 'Java',
-        percentage: 53,
+        percentage: 63,
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
     },
     {
