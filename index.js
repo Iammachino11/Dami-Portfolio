@@ -84,7 +84,7 @@ $('#about-link, #contact-link').click(function(){
             image: "images/projectImgThumbnails/project-1.jpg",
             name: "Novar Lynk Website",
             description: "A Software Company Website, displaying their service with a modern look.",
-            tags: ["Jquery", "HTML & CSS"],
+            tags: ["Jquery", "HTML & CSS","PHP"],
             liveDemo: "https://www.novarlynk.com",
             sourceCode: "#"
         },

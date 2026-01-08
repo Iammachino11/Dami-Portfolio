@@ -6,6 +6,10 @@
     <title>My Resume</title>
     <link rel="icon" href="images/resume-ico.ico">
     <link rel="stylesheet" href="google-fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <script src="jQueryv3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root{
             --a4-width: 2480px;
@@ -15,24 +19,99 @@
             text-decoration: none;
             color: inherit;
         }
+        
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', Arial;
+            border: none;
+            outline: none;
         }
         body{
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: aliceblue;
             padding: 70px;
         }
+        .downloadWrapper{
+            position: fixed;
+            display: flex;
+            justify-content: right;
+            bottom: 20px;
+            left: -20px;
+            width: 100%;
+            z-index: 10;
+
+        }
+        .downloadWrapper button{
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            font-size: 20px;
+            border-radius: 10px;
+            color: white;
+            background-color: #1444ac;
+        }
+        .downloadWrapper ul{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            top: -40px;
+            right: -70px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            width: 180px;
+            box-shadow: 1px 1px 10px #dbdbdb;
+            scale: 0;
+            transition: 0.4s ease-in-out;
+            z-index: -1;
+
+        }
+        .downloadWrapper ul.expand{
+            transform: translateY(-130px);
+            scale: 1;
+            top: 0;
+            right: 0;
+            rotate: 0deg;
+
+        }
+        .downloadWrapper ul li{
+            position: relative;
+            cursor: pointer;
+            list-style: none;
+            padding: 10px;
+            border-radius: 6px;
+            transition: 0.2s ease;
+        }
+        .downloadWrapper ul li[data-recommended]::after{
+            content: 'recommended';
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            font-size: 10px;
+            padding: 2px 4px;
+            background-color: #1444ac33;
+            color: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+        }
+        .downloadWrapper ul li:hover{
+            background-color: #dbdbdb;
+        }
+
         section{
             display: flex;
-            min-width: calc(var(--a4-width)/2.5);
-            width: calc(var(--a4-width)/2.5);
-            min-height: calc(var(--a4-height)/2.5);
-            height: calc(var(--a4-height)/2.5);
+            min-width: calc(var(--a4-width)2.4);
+            width: calc(var(--a4-width)/2.4);
+            min-height: calc(var(--a4-height)/2.4);
+            height: calc(var(--a4-height)/2.4);
         }
         .Resume{
             display: flex;
@@ -81,23 +160,29 @@
             font-family: 'Poppins', sans-serif;
             list-style: none;
         }
+        .lInfo .educationGrid{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 25px;
+        }
+        .lInfo .educationGrid:last-child{
+            margin-bottom: 0;
+        }
         .contact div{
             display: flex;
             align-items: flex-start;
             gap: 8px;
         }
-        .iconContainer{
-            width: 16px;
-        }
-        .icon{
+        .contact div i{
             color: #1444ac;
-            width: 16px;
+            font-size: 16px;
             margin-top: 7px;
         }
+
         .Year{
             min-width: fit-content;
             width: fit-content;
-
             padding: 2px 6px;
             background-color: #1444ac;
             color: white;
@@ -105,6 +190,7 @@
         }
         .Degree{
             font-weight: bold;
+            margin-top: 5px;
         }
         .experienceTop{
             display: flex;
@@ -121,7 +207,7 @@
             gap: 10px 20px;
         }
         .skills ul li{
-            background-color: #bfbfbf;
+            background-color: #dbdbdb;
             padding: 4px 10px;
             border-radius: 20px;
         }
@@ -149,39 +235,48 @@
     </style>
 </head>
 <body>
-    <section>
+    <div class="downloadWrapper">
+        <button id="download-resume"><i class="fa-solid fa-download"></i></button>
+        <ul>
+            <li class="downloadType" id="as-pdf" data-recommended>As PDF</li>
+            <li class="downloadType" id="as-jpg">As JPG</li> 
+        </ul>
+    </div>
+    <section class="Page" id="page" data-page-index="1">
         <div class="Resume resumeLeft">
             <div class="header"></div>
             <div class="lInfo contact">
                 <h2>Contact</h2>
                 <div>
-                    <span class="iconContainer"><img src="images/call-icon.svg" alt="" class="svg icon"></span> <p>+234 70-6774-0080</p>
+                    <i class="fa-solid fa-phone"></i> <p>+234 70-6774-0080</p>
                 </div>
-                <div><span class="iconContainer">
-                    <img src="images/mail-icon.svg" alt="" class="svg icon"></span> <a href="mailto:">machino11.m11@gmail.com</a>
+                <div><i class="fa-solid fa-envelope"></i> <a href="mailto:">machino11.m11@gmail.com</a>
                 </div>
                 <div>
-                    <span class="iconContainer"><img src="images/home-icon2.svg" alt="" class="svg icon"></span><p>No 9 Ukuwere Street New Layout, Ekpan Warri, Delta State, Nigeria</p>
+                    <i class="fa-solid fa-house"></i><p>No 9 Ukuwere Street New Layout, Ekpan Warri, Delta State, Nigeria</p>
                 </div>
 
             </div>
             <div class="lInfo Education">
                 <h2>Education</h2>
-                <div class="Year">Present</div>
-                <div class="Degree">Diploma in Software Engineering</div>
-                <div class="educationName">National Institute of Information and Technology (NIIT)</div>
-            </div>
-            <div class="lInfo skills">
-                <h2>Skills </h2>
-                <ul>
-                    <li>Html</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Jquery</li>
-                    <li>TypeScript</li>
-                    <li>JAVA</li>
-                    <li>Python</li>
-                </ul>
+                <div class="educationGrid">
+                    <div class="Year">2015-2017</div>
+                    <div class="Degree">BASIC EDUCATION CERTIFICATE (BEC)</div>
+                    <div class="educationName">FEDERAL GOVERNMENT COLLEGE IDOANI</div>
+                </div>
+                <div class="educationGrid">
+                    <div class="Year">2018-2021</div>
+                    <div class="Degree">WEST AFRICAN EXAMINATION COUNCIL (WAEC)</div>
+                    <div class="Degree">NATIONAL EXAMINATION COUNCIL (NECO)</div>
+                    <div class="educationName">FEDERAL GOVERNMENT COLLEGE WARRI</div>
+                </div>
+                <div class="educationGrid">
+                    <div class="Year">2022-2025</div>
+                    <div class="Degree">Diploma in Software Engineering</div>
+                    <div class="educationName">National Institute of Information and Technology (NIIT)</div>
+                </div>
+
+
             </div>
         </div>
         <div class="Resume resumeRight">
@@ -196,16 +291,34 @@
 
             <div class="rInfo Experience">
                 <h2>Experience</h2>
-                <div class="experienceTop">
-                    <div class="Year">2021-2022</div>
-                    <div class="experienceName">
-                        <span class="companyName">RULDEF Computers</span> |
-                        <span class="experienceRole">Computer Operator/Graphics Designer</span>
+                <div class="experienceGrid">
+                    <div class="experienceTop">
+                        <div class="Year">2021-2022</div>
+                        <div class="experienceName">
+                            <span class="companyName">RULDEF Computers</span> |
+                            <span class="experienceRole">Computer Operator/Graphics Designer</span>
+                        </div>
+                    </div>
+                    <div class="experienceDescription">
+                        Collaborated with clients to create visually appealing designs and provided technical support and conducted training sessions on graphic design software and best practices.
                     </div>
                 </div>
-                <div class="experienceDescription">
-                    Collaborated with clients to create visually appealing designs and provided technical support and conducted training sessions on graphic design software and best practices.
-                </div>
+            </div>
+
+            <div class="lInfo skills">
+                <h2>Skills </h2>
+                <ul>
+                    <li>Html</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Jquery</li>
+                    <li>TypeScript</li>
+                    <li>JAVA</li>
+                    <li>Python</li>
+                    <li>SQL Server</li>
+                    <li>mySQL</li>
+                    <li>SQLite</li>
+                </ul>
             </div>
 
             <div class="rInfo Hobbies">
@@ -221,6 +334,79 @@
     </section>
     <script src="jQueryv3.7.1.js"></script>
     <script src="embed-svg.js"></script>
+    <script>
+        
+        $('#download-resume').on('click', (e) => {
+            e.stopPropagation();
+            $('.downloadWrapper ul').toggleClass('expand');
+        });
+
+        $(document).on('click', (e) => {
+            if (!$(e.target).closest('#download-resume').length && $('.downloadWrapper ul').hasClass('expand')) {
+                $('.downloadWrapper ul').removeClass('expand');
+            }
+        });
+        $('#as-pdf').on('click', async () => {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pages = $('.Page');
+            
+            for (let i = 0; i < pages.length; i++) {
+                const canvas = await html2canvas(pages[i], {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false
+                });
+                
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const imgWidth = 210; // A4 width in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                if (i > 0) pdf.addPage();
+                pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+            }
+            
+            pdf.save('Resume.pdf');
+            $('.downloadWrapper ul').removeClass('expand');
+        });
+
+        $('#as-jpg').on('click', async () => {
+            const pages = $('.Page');
+            
+            for (let i = 0; i < pages.length; i++) {
+                const canvas = await html2canvas(pages[i], {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false
+                });
+                
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `Resume_Page_${i + 1}.jpg`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }, 'image/jpeg', 1.0);
+            }
+            
+            $('.downloadWrapper ul').removeClass('expand');
+        });
+
+        function resizePage() {
+            const section = $('.Page');
+            const windowWidth = $(window).width();
+            const sectionWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--a4-width')) / 2.4;
+            
+            let scale = (windowWidth - 40) / sectionWidth; // 40px for padding
+            if (scale > 1) scale = 1; // Don't scale up, only down
+            
+            section.css('transform', `scale(${scale})`);
+            section.css('transform-origin', 'top center');
+        }
+
+        $(window).on('load resize', resizePage);
+    </script> 
 
 </body>
 </html>
