@@ -1,5 +1,8 @@
 $(".errorMessage").hide();
 $(document).ready(function() {
+    let currentProjectImages = [];
+    let currentImageIndex = 0;
+    let autoChangeInterval = null;
     // Check for saved theme
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
@@ -79,24 +82,56 @@ $('#about-link, #contact-link').click(function(){
         $('nav ul').toggleClass('active')
       });
 
-    const projects = [
-        {
-            image: "images/projectImgThumbnails/project-1.jpg",
-            name: "Novar Lynk Website",
-            description: "A Software Company Website, displaying their service with a modern look.",
-            tags: ["Jquery", "HTML & CSS","PHP"],
-            liveDemo: "https://www.novarlynk.com",
-            sourceCode: "#"
-        },
-        {
-            image: "images/projectImgThumbnails/project-2.jpg",
-            name: "Hotel Booking",
-            description: "Hotel Booking Website, with booking, room gallery, and cancel booking functionality",
-            tags: ["Jquery", "Jsp", "Java", "Web Servlet"],
-            liveDemo: "#",
-            sourceCode: "https://github.com/Iammachino11/NIIT_SEM_2_Project.git"
-        },
-    ];
+    let projects = []; // Will be populated from JSON
+    function loadProjects() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: 'projects.json',
+                dataType: 'json',
+                success: function(data) {
+                    projects = data.projects || [];
+                    console.log('Projects loaded successfully:', projects.length);
+                    resolve(projects);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading projects.json:', error);
+                    // Fallback to empty array if file doesn't exist
+                    projects = [];
+                    resolve(projects);
+                }
+            });
+        });
+    }
+
+
+// Update the initializePage function to load skills from JSON
+async function initializePage() {
+    try {
+        // Load projects from JSON
+        await loadProjects();
+        
+        // Load skills from JSON
+        await loadSkills();
+        
+        // Render projects
+        renderProjects();
+        
+        // Initialize skills
+        initializeSkills();
+        
+        // Initialize SVG replacement
+        $('.skillIcon').each(function() {
+            replaceSVGs(this);
+        });
+        
+        // Attach event listeners to skill togglers
+        $('.skillToggler').on('mousedown touchstart', startDrag);
+        
+        // ... rest of your initialization code
+    } catch (error) {
+        console.error('Failed to initialize page:', error);
+    }
+}
 
     const icons = {
         github: `<svg class="icon" viewBox="0 0 250 250">
@@ -119,20 +154,26 @@ $('#about-link, #contact-link').click(function(){
         $project.html(`
             <div class="projectImgContainer">
                 <img src="${project.image}" alt="${project.name}" class="projectImg">
+                <div class="viewProjImgBtn">
+                    <button class="buttonStyle2">View project images</button>
+                </div>
             </div>
             <div class="projectInfo">
                 <h2 class="projectName">${project.name}</h2>
                 <div class="projectDescription">${project.description}</div>
                 ${$tags.prop('outerHTML')}
                 <div class="aboutProjectsContainer">
-                <a href="${project.liveDemo || 'javascript:void(0)'}" class="liveDemoLink">
+                <a href="${project.liveDemo || 'javascript:void(0)'}" class="liveDemoLink" target="_blank">
                         ${icons.external}
                         Live Demo
                     </a>
-                    <a href="${project.sourceCode || 'javascript:void(0)'}" class="sourceCodeLink">
+                    <a href="${project.sourceCode || 'javascript:void(0)'}" class="sourceCodeLink" target="_blank">
                         ${icons.github}
                         Source Code
                     </a>
+                </div>
+                <div class="viewProjImgBtn">
+                    <button class="buttonStyle1">View project images</button>
                 </div>
                 <div class="errorMessage"></div>
             </div>
@@ -161,7 +202,8 @@ $('#about-link, #contact-link').click(function(){
 
         handleEmptyLink('.liveDemoLink', 'This project does not have a live demo');
         handleEmptyLink('.sourceCodeLink', 'Source code is unavailable for this project');
-
+        
+        $project.data('projectData', project); // Store the entire project object
         return $project;
     }
 
@@ -177,80 +219,33 @@ $('#about-link, #contact-link').click(function(){
 
     // =============================== SKILL SECTION FUNCTIONALITY HERE==========================================
     // Skill Data
-const skills = [
-    {
-        category: 'frontend',
-        icon: 'images/html-icon.svg',
-        name: 'HTML5',
-        percentage: 93,
-        description: 'I am skilled and experienced in creating, accessible, and responsive HTML pages and building website structure using proper elements and tags. Creates page layouts that work across browsers with expertise in HTML5 features and best practices.'
-    },
-    {
-        category: 'frontend',
-        icon: 'images/css-Icon.svg',
-        name: 'CSS3',
-        percentage: 96,
-        description: ' Expert-level in creating modular, reusable, and visually appealing CSS styles, with strong knowledge of CSS3, flexbox, grid, and media queries. Styling websites with colors, spacing, smooth transitions, animations'
-    },
-    {
-        category: 'frontend',
-        icon: 'images/JS-icon.svg',
-        name: 'JavaScript',
-        percentage: 83,
-        description: 'Skilled in developing interactive, and scalable JS webpages, with experience in DOM manipulation, event handling, asynchronous programming and adding interactive features like forms and dynamic content.'
-    },
-    {
-        category: 'frontend',
-        icon: 'images/jQuery-icon.svg',
-        name: 'JQuery',
-        percentage: 79,
-        description: 'Skilled in utilizing jQuery with knowledge of jQuery plugins and extensions. Simplifies JavaScript tasks like animations and AJAX calls. Works well with existing websites.'
-    },
-    {
-        category: 'frontend',
-        icon: 'images/React-icon.svg',
-        name: 'React',
-        percentage: 5,
-        description: ' Basic understanding of React fundamentals, including components, props, and state, with a room for further learning and development'
-    },
-    {
-        category: 'frontend',
-        icon: 'images/typeScript-Icon.svg',
-        name: 'TypeScript',
-        percentage: 31,
-        description: 'Familiar with TypeScript basics, including type annotations, interfaces, and classes, with a growing understanding of its benefits for large-scale applications'
-    },
-    {
-        category: 'backend',
-        icon: 'images/Java-icon.svg',
-        name: 'Java',
-        percentage: 63,
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-        category: 'backend',
-        icon: 'images/DB-icon.svg',
-        name: 'SQL Server',
-        percentage: 81,
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-        category: 'others',
-        icon: 'images/Git-Icon.svg',
-        name: 'Git',
-        percentage: 63,
-        description: 'Proficient in using Git for version control, collaboration, and workflow management, including experience with branching, merging, and resolving conflicts'
-    },
-];
+    let skills = []; // Will be populated from JSON
 
-// Function to create skill elements
+    function loadSkills() {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: 'skills.json',
+            dataType: 'json',
+            success: function(data) {
+                skills = data.skills || [];
+                console.log('Skills loaded successfully:', skills.length);
+                resolve(skills);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading skills.json:', error);
+                // Fallback to empty array if file doesn't exist
+                skills = [];
+                resolve(skills);
+            }
+        });
+    });
+}
+
+
 function createSkillElement(skill) {
     const circumference = 2 * Math.PI * 70;
-    
-    // Calculate stroke values
     const progressOffset = circumference * (1 - skill.percentage / 110);
     
-    // Create skill HTML
     return $(`
     <div class="skillMainDisplay">
         <div class="skill">
@@ -276,18 +271,22 @@ function createSkillElement(skill) {
         <div class="skillDescription">${skill.description}</div>
     </div>
     `);
-    
 }
+
+
 
 // Initialize skills
 function initializeSkills() {
     const containers = {
-        // Match category names to HTML container classes exactly
-        frontend: $('.frontEndSkills'), // Matches frontEndSkills div
-        backend: $('.backEndSkills'),   // Matches backEndSkills div
-        others: $('.otherSkills')       // Matches otherSkills div
+        frontend: $('.frontEndSkills'),
+        backend: $('.backEndSkills'),
+        others: $('.otherSkills')
     };
 
+    // Clear existing skills first to prevent duplicates
+    Object.values(containers).forEach(container => container.empty());
+    
+    // Add skills from the skills array
     skills.forEach(skill => {
         const container = containers[skill.category];
         if (container) {
@@ -296,7 +295,6 @@ function initializeSkills() {
     });
 }
 
-initializeSkills();
     
     // Initialize SVG replacement for all skills
     $('.skillIcon').each(function() {
@@ -349,10 +347,167 @@ initializeSkills();
         }
     }
 
+
+    function displayImage(index) {
+        if (currentProjectImages.length === 0) return;
+        
+        currentImageIndex = index;
+        const img = currentProjectImages[index];
+        
+        // Update main display
+        $('#display').attr('src', img.src).attr('alt', img.description);
+        
+        // Update active thumbnail
+        $('.thumbnailCard').css('border', 'none');
+        $(`.thumbnailCard[data-index="${index}"]`).css({
+            'border': '5px solid var(--primary-light-theme2)'
+        });
+    }
+
+    function initializeGallery(project) {
+        currentProjectImages = project.images || [];
+        currentImageIndex = 0;
+        
+        // Set modal title
+        $('.viewProjImgModalContent h2').text(project.name);
+        
+        // Clear and populate thumbnails
+        $('.thumbnailContainer').empty();
+        currentProjectImages.forEach((img, index) => {
+            const $thumb = $(`
+                <div class="thumbnailCard" data-index="${index}">
+                    <span>${img.description}</span>
+                    <img src="${img.thumb}" alt="${img.description}">
+                </div>
+            `);
+            $('.thumbnailContainer').append($thumb);
+        });
+        
+        // Display first image
+        displayImage(0);
+        
+        // Start auto-change
+        startAutoChange();
+    }
+
+    function nextImage() {
+        const nextIndex = (currentImageIndex + 1) % currentProjectImages.length;
+        displayImage(nextIndex);
+        resetAutoChange();
+    }
+
+    function previousImage() {
+        const prevIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+        displayImage(prevIndex);
+        resetAutoChange();
+    }
+
+    function startAutoChange() {
+        stopAutoChange();
+        autoChangeInterval = setInterval(() => {
+            nextImage();
+        }, 5000);
+    }
+
+    function stopAutoChange() {
+        if (autoChangeInterval) {
+            clearInterval(autoChangeInterval);
+            autoChangeInterval = null;
+        }
+    }
+
+    function resetAutoChange() {
+        stopAutoChange();
+        startAutoChange();
+    }
+
+// Replace the current expand button handler with this:
+$('#expand-thumb-btn').on('click', function(){
+    const $thumbnailContainer = $('.thumbnailContainer');
+    const $expandIcon = $('#expand-icon');
+    const $compressIcon = $('#compress-icon');
+    
+    $thumbnailContainer.toggleClass('expand');
+    
+    // Toggle icons based on state
+    if ($thumbnailContainer.hasClass('expand')) {
+        $expandIcon.hide();
+        $compressIcon.show();
+    } else {
+        $expandIcon.show();
+        $compressIcon.hide();
+    }
+});
+
+$(document).on('click', '.viewProjImgBtn button', function() {
+    const project = $(this).closest('.projects').data('projectData');
+    
+    if (!project.images || project.images.length === 0) {
+        const $projectContainer = $(this).closest('.projects');
+        const $error = $projectContainer.find('.errorMessage');
+        
+        $error.stop(true, true)
+            .text('No images available for this project')
+            .fadeIn(300)
+            .addClass('shake')
+            .delay(2000)
+            .fadeOut(300);
+        
+        setTimeout(() => {
+            $error.removeClass('shake');
+        }, 2300);
+        return;
+    }
+    
+    initializeGallery(project);
+    $('.viewProjImgModal').fadeIn();
+    
+    // Reset expand/compress icons when modal opens
+    $('#expand-icon').show();
+    $('#compress-icon').hide();
+    $('.thumbnailContainer').removeClass('expand');
+});
+
+    $('#close-modal-btn').on('click', ()=>{
+        stopAutoChange();
+        $('.viewProjImgModal').fadeOut();
+    });
+    $('#expand-thumb-btn').on('click', function(){
+        const $thumbnailContainer = $('.thumbnailContainer');
+        const $expandIcon = $('#expand-icon');
+        const $compressIcon = $('#compress-icon');
+        
+        $thumbnailContainer.toggleClass('expand');
+        
+        // Toggle icons based on state
+        if ($thumbnailContainer.hasClass('expand')) {
+            $expandIcon.hide();
+            $compressIcon.show();
+        } else {
+            $expandIcon.show();
+            $compressIcon.hide();
+        }
+    });
+
+    $('#next-image-btn').on('click', nextImage);
+    $('#previous-image-btn').on('click', previousImage);
+
+    $(document).on('click', '.thumbnailCard', function() {
+        const index = $(this).data('index');
+        displayImage(index);
+        resetAutoChange();
+    });
+
     // Attach event listeners to each skillToggler
     $('.skillToggler').on('mousedown touchstart', startDrag);
     $(document).on('mousemove touchmove', duringDrag);
     $(document).on('mouseup touchend', endDrag);
+
+     initializePage().then(() => {
+        console.log('Page initialized successfully');
+    }).catch(error => {
+        console.error('Page initialization failed:', error);
+    });
 
     
 });

@@ -1,0 +1,337 @@
+{
+  "projects": [
+    {
+      "image": "images/project-images/Corahert/image-1.png",
+      "name": "Corahert E-commerce",
+      "description": "Single Vendor Clothing e-commerce website",
+      "tags": ["HTML & CSS", "Jquery", "JSP & JSF", "Servlet", "SQLServer", "Spring"],
+      "liveDemo": "#",
+      "sourceCode": "https://github.com/Iammachino11/CLOTHING-E-COMMERCE-WEBSITE-IN-JAVA-SERVLET-AND-JSP",
+      "images": [
+          {
+              "src": "images/project-images/Corahert/image-1.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-1.png",
+              "description": "Landing Page"
+          },
+          {
+              "src": "images/project-images/Corahert/image-2.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-2.png",
+              "description": "Services Section"
+          },
+          {
+              "src": "images/project-images/Corahert/image-3.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-3.png",
+              "description": "Empty Cart"
+          },
+          {
+              "src": "images/project-images/Corahert/image-4.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-4.png",
+              "description": "Login/Sign up Modal"
+          },
+          {
+              "src": "images/project-images/Corahert/image-5.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-5.png",
+              "description": "Sign in"
+          },
+          {
+              "src": "images/project-images/Corahert/image-6.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-6.png",
+              "description": "Sign up"
+          },
+          {
+              "src": "images/project-images/Corahert/image-7.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-7.png",
+              "description": "Accounts/profile"
+          },
+          {
+              "src": "images/project-images/Corahert/image-8.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-8.png",
+              "description": "Accounts/wishlist"
+          },
+          {
+              "src": "images/project-images/Corahert/image-9.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-9.png",
+              "description": "Accounts/orders"
+          },
+          {
+              "src": "images/project-images/Corahert/image-10.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-10.png",
+              "description": "Accounts/settings"
+          },
+          {
+              "src": "images/project-images/Corahert/image-11.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-11.png",
+              "description": "Accounts/order-details"
+          },
+          {
+              "src": "images/project-images/Corahert/image-12.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-12.png",
+              "description": "Home/top-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-13.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-13.png",
+              "description": "Shop/product-details"
+          },
+          {
+              "src": "images/project-images/Corahert/image-14.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-14.png",
+              "description": "Shop/product-details"
+          },
+          {
+              "src": "images/project-images/Corahert/image-15.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-15.png",
+              "description": "Cart"
+          },
+          {
+              "src": "images/project-images/Corahert/image-16.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-16.png",
+              "description": "Cart/summary"
+          },
+          {
+              "src": "images/project-images/Corahert/image-17.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-17.png",
+              "description": "Checkout"
+          },
+          {
+              "src": "images/project-images/Corahert/image-18.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-18.png",
+              "description": "Purchase Successful"
+          },
+          {
+              "src": "images/project-images/Corahert/image-19.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-19.png",
+              "description": "Forgot-password"
+          },
+          {
+              "src": "images/project-images/Corahert/image-20.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-20.png",
+              "description": "Forgot-Password"
+          },
+          {
+              "src": "images/project-images/Corahert/image-21.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-21.png",
+              "description": "Reset-Password"
+          },
+          {
+              "src": "images/project-images/Corahert/image-22.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-22.png",
+              "description": "Reset-Password"
+          },
+          {
+              "src": "images/project-images/Corahert/image-23.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-23.png",
+              "description": "Home/item summary"
+          },
+          {
+              "src": "images/project-images/Corahert/image-24.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-24.png",
+              "description": "Admin-dashboard"
+          },
+          {
+              "src": "images/project-images/Corahert/image-25.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-25.png",
+              "description": "Admin/products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-26.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-26.png",
+              "description": "Admin/add-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-27.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-27.png",
+              "description": "Admin/add-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-28.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-28.png",
+              "description": "Admin/add-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-29.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-29.png",
+              "description": "Admin/add-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-30.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-30.png",
+              "description": "Admin/edit-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-31.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-31.png",
+              "description": "Admin/edit-products"
+          },
+          {
+              "src": "images/project-images/Corahert/image-32.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-32.png",
+              "description": "Admin/category"
+          },
+          {
+              "src": "images/project-images/Corahert/image-33.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-33.png",
+              "description": "Admin/inventory"
+          },
+          {
+              "src": "images/project-images/Corahert/image-34.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-34.png",
+              "description": "Admin/order"
+          },
+          {
+              "src": "images/project-images/Corahert/image-35.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-35.png",
+              "description": "Admin/order"
+          },
+          {
+              "src": "images/project-images/Corahert/image-36.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-36.png",
+              "description": "Admin/marketing"
+          },
+          {
+              "src": "images/project-images/Corahert/image-37.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-37.png",
+              "description": "Admin/marketing"
+          },
+          {
+              "src": "images/project-images/Corahert/image-38.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-38.png",
+              "description": "Admin/marketing"
+          },
+          {
+              "src": "images/project-images/Corahert/image-39.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-39.png",
+              "description": "Admin/settings"
+          },
+          {
+              "src": "images/project-images/Corahert/image-40.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-40.png",
+              "description": "Admin/settings"
+          },
+          {
+              "src": "images/project-images/Corahert/image-41.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-41.png",
+              "description": "Shop"
+          },
+          {
+              "src": "images/project-images/Corahert/image-42.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-42.png",
+              "description": "Shop/product-detail"
+          },
+          {
+              "src": "images/project-images/Corahert/image-43.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-43.png",
+              "description": "Shop/Search"
+          },
+          {
+              "src": "images/project-images/Corahert/image-44.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-44.png",
+              "description": "Shop/Filter"
+          },
+          {
+              "src": "images/project-images/Corahert/image-45.png",
+              "thumb": "images/project-images/Corahert/thumbs/image-45.png",
+              "description": "Shop/no-product-found"
+          }
+      ]
+    },
+
+    {
+      "image": "images/project-images/Houstons/thumbs/image-1.png",
+      "name": "Hotel Booking Website",
+      "description": "Hotel Booking Website, with booking, room gallery, and cancel booking functionality",
+      "tags": ["HTML & CSS", "jQuery","JSP","Servlet","SQLServer"],
+      "liveDemo": "#",
+      "sourceCode": "https://github.com/Iammachino11/NIIT_SEM_2_Project",
+        "images": [
+        {
+          "src": "images/project-images/Houstons/image-1.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-1.png",
+          "description": "Landing Page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-2.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-2.png",
+          "description": "Mini Gallery"
+        },
+        {
+          "src": "images/project-images/Houstons/image-3.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-3.png",
+          "description": "Accomodation Page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-4.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-4.png",
+          "description": "Why choose us"
+        },
+        {
+          "src": "images/project-images/Houstons/image-5.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-5.png",
+          "description": "Services page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-6.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-6.png",
+          "description": "Reviews page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-7.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-7.png",
+          "description": "About us page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-8.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-8.png",
+          "description": "Contact page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-9.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-9.png",
+          "description": "Directions page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-10.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-10.png",
+          "description": "Footer"
+        },
+        {
+          "src": "images/project-images/Houstons/image-11.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-11.png",
+          "description": "Rooms page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-12.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-12.png",
+          "description": "Bookings page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-15.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-15.png",
+          "description": "Room Details"
+        },
+        {
+          "src": "images/project-images/Houstons/image-13.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-13.png",
+          "description": "Bookings Page"
+        },
+        {
+          "src": "images/project-images/Houstons/image-14.png",
+          "thumb": "images/project-images/Houstons/thumbs/image-14.png",
+          "description": "Booking Successful"
+        }
+      ]
+    },
+     {
+      "image": "images/projectImgThumbnails/project-1.jpg",
+      "name": "Novar Lynk Website",
+      "description": "A Software Company Website, displaying their service with a modern look.",
+      "tags": ["HTML & CSS", "Bootstrap","jQuery","PHP","mySQL"],
+      "liveDemo": "https://www.novarlynk.com/",
+      "sourceCode": "#",
+        "images": []
+    }
+
+
+
+  ]
+}

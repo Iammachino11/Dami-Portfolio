@@ -180,6 +180,13 @@
             margin-top: 7px;
         }
 
+        .experienceGrid{
+            margin-bottom: 15px;
+        }
+        .experienceGrid:last-child{
+            margin-bottom: 0;
+        }
+
         .Year{
             min-width: fit-content;
             width: fit-content;
@@ -242,100 +249,349 @@
             <li class="downloadType" id="as-jpg">As JPG</li> 
         </ul>
     </div>
-    <section class="Page" id="page" data-page-index="1">
-        <div class="Resume resumeLeft">
-            <div class="header"></div>
-            <div class="lInfo contact">
-                <h2>Contact</h2>
-                <div>
-                    <i class="fa-solid fa-phone"></i> <p>+234 70-6774-0080</p>
-                </div>
-                <div><i class="fa-solid fa-envelope"></i> <a href="mailto:">machino11.m11@gmail.com</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-house"></i><p>No 9 Ukuwere Street New Layout, Ekpan Warri, Delta State, Nigeria</p>
-                </div>
-
-            </div>
-            <div class="lInfo Education">
-                <h2>Education</h2>
-                <div class="educationGrid">
-                    <div class="Year">2015-2017</div>
-                    <div class="Degree">BASIC EDUCATION CERTIFICATE (BEC)</div>
-                    <div class="educationName">FEDERAL GOVERNMENT COLLEGE IDOANI</div>
-                </div>
-                <div class="educationGrid">
-                    <div class="Year">2018-2021</div>
-                    <div class="Degree">WEST AFRICAN EXAMINATION COUNCIL (WAEC)</div>
-                    <div class="Degree">NATIONAL EXAMINATION COUNCIL (NECO)</div>
-                    <div class="educationName">FEDERAL GOVERNMENT COLLEGE WARRI</div>
-                </div>
-                <div class="educationGrid">
-                    <div class="Year">2022-2025</div>
-                    <div class="Degree">Diploma in Software Engineering</div>
-                    <div class="educationName">National Institute of Information and Technology (NIIT)</div>
-                </div>
-
-
-            </div>
-        </div>
-        <div class="Resume resumeRight">
-            <div class="header">
-                <h1>Michael <span>Damilola</span></h1>
-                <p>Software Developer</p>
-            </div>
-            <div class="rInfo aboutMe">
-                <h2>About</h2>
-                <p>Skilled Software Developer with a passion for creating innovative, efficient, and scalable applications. Seeking an opportunity to leverage my technical expertise and problem-solving skills to contribute to cutting-edge software solutions.</p>
-            </div>
-
-            <div class="rInfo Experience">
-                <h2>Experience</h2>
-                <div class="experienceGrid">
-                    <div class="experienceTop">
-                        <div class="Year">2021-2022</div>
-                        <div class="experienceName">
-                            <span class="companyName">RULDEF Computers</span> |
-                            <span class="experienceRole">Computer Operator/Graphics Designer</span>
-                        </div>
-                    </div>
-                    <div class="experienceDescription">
-                        Collaborated with clients to create visually appealing designs and provided technical support and conducted training sessions on graphic design software and best practices.
-                    </div>
-                </div>
-            </div>
-
-            <div class="lInfo skills">
-                <h2>Skills </h2>
-                <ul>
-                    <li>Html</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Jquery</li>
-                    <li>TypeScript</li>
-                    <li>JAVA</li>
-                    <li>Python</li>
-                    <li>SQL Server</li>
-                    <li>mySQL</li>
-                    <li>SQLite</li>
-                </ul>
-            </div>
-
-            <div class="rInfo Hobbies">
-                <h2>Hobbies</h2>
-                <ul>
-                    <li>Gaming</li>
-                    <li>3d Modelling</li>
-                    <li>Coding</li>
-                    <li>Sketching</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <script src="jQueryv3.7.1.js"></script>
     <script src="embed-svg.js"></script>
     <script>
-        
+        // resume-data.js
+        const resumeData = {
+        pages: [
+            {
+            id: 1,
+            leftColumn: {
+                header: {
+                // Optional: Can add content here if needed
+                },
+                contact: {
+                title: "Contact",
+                items: [
+                    {
+                    icon: "fa-solid fa-phone",
+                    text: "+234 70-6774-0080",
+                    link: null
+                    },
+                    {
+                    icon: "fa-solid fa-envelope",
+                    text: "machino11.m11@gmail.com",
+                    link: "mailto:machino11.m11@gmail.com"
+                    },
+                    {
+                    icon: "fa-solid fa-house",
+                    text: "No 9 Ukuwere Street New Layout, Ekpan Warri, Delta State, Nigeria",
+                    link: null
+                    }
+                ]
+                },
+                education: {
+                title: "Education",
+                items: [
+                    {
+                    period: "2015-2017",
+                    degree: "BASIC EDUCATION CERTIFICATE (BEC)",
+                    institution: "FEDERAL GOVERNMENT COLLEGE IDOANI"
+                    },
+                    {
+                    period: "2018-2021",
+                    degree: "WEST AFRICAN EXAMINATION COUNCIL (WAEC)<br>NATIONAL EXAMINATION COUNCIL (NECO)",
+                    institution: "FEDERAL GOVERNMENT COLLEGE WARRI"
+                    },
+                    {
+                    period: "2022-2025",
+                    degree: "Diploma in Software Engineering",
+                    institution: "National Institute of Information and Technology (NIIT)"
+                    },
+                    {
+                        period: "current",
+                        degree: "BSc (Hons) Computer Science",
+                        institution: "Middlesex University Mauritius"
+                    }, 
+                ]
+                }
+            },
+            rightColumn: {
+                header: {
+                name: "Michael Damilola",
+                title: "Software Developer",
+                highlight: "Damilola"
+                },
+                about: {
+                title: "About",
+                content: "Software Engineer with 3+ years of experience building scalable backend services and full-stack applications. Proficient in Java, Kotlin, and Ruby on Rails, with a focus on designing efficient APIs and optimizing distributed systems."
+                },
+                experience: {
+                title: "Experience",
+                items: [
+                    {
+                    period: "2021-2022",
+                    company: "RULDEF Computers",
+                    role: "Computer Operator/Graphics Designer",
+                    description: "Collaborated with clients to create visually appealing designs and provided technical support and conducted training sessions on graphic design software and best practices."
+
+                    },
+                    {
+                    period: "2022-2025",
+                    company: "Claustin International Limited",
+                    role: "Software Engineer",
+                    description: "Designed and implemented scalable backend services and REST APIs primarily using Java and the Spring framework. Focused on writing clean, high-performance code, optimizing PostgreSQL queries, and automating deployments through CI/CD pipelines to improve system reliability and delivery speed."
+                    },
+                    
+                ]
+                },
+                skills: {
+                title: "Skills",
+                items: ["Html", "CSS", "JavaScript", "Jquery", "TypeScript", "JAVA", "Python", "SQL Server", "mySQL", "SQLite", "PostgreSQL","Kotlin","Ruby on Rails", "Spring Boot", "AWS", "Git", "CI/CD Pipelines"]
+                },
+                hobbies: {
+                title: "Hobbies",
+                items: ["Gaming", "3d Modelling", "Coding", "Sketching"]
+                }
+            }
+            },
+            // Add more pages here for multi-page resumes
+            /*
+            {
+            id: 2,
+            leftColumn: {
+                // ... content for page 2 left column
+            },
+            rightColumn: {
+                // ... content for page 2 right column
+            }
+            }
+            */
+        ]
+        };
+
+        // resume-builder.js
+        class ResumeBuilder {
+        constructor(resumeData) {
+            this.resumeData = resumeData;
+            this.container = $('body');
+            this.currentPage = 0;
+        }
+
+        // Initialize the resume
+        init() {
+            this.clearExistingResume();
+            this.generateResume();
+            this.setupEventListeners();
+        }
+
+        // Clear existing content
+        clearExistingResume() {
+            $('.Page').remove();
+        }
+
+        // Generate all pages
+        generateResume() {
+            this.resumeData.pages.forEach((pageData, index) => {
+            const page = this.createPage(pageData, index + 1);
+            this.container.append(page);
+            });
+            this.adjustScaling();
+        }
+
+        // Create a single page
+        createPage(pageData, pageIndex) {
+            const page = $(`
+            <section class="Page" id="page-${pageIndex}" data-page-index="${pageIndex}">
+                <div class="Resume resumeLeft"></div>
+                <div class="Resume resumeRight"></div>
+            </section>
+            `);
+
+            // Build left column
+            const leftColumn = page.find('.resumeLeft');
+            this.buildLeftColumn(leftColumn, pageData.leftColumn);
+
+            // Build right column
+            const rightColumn = page.find('.resumeRight');
+            this.buildRightColumn(rightColumn, pageData.rightColumn);
+
+            return page;
+        }
+
+        // Build left column content
+        buildLeftColumn(container, data) {
+            // Add header if exists
+            if (data.header) {
+            container.append('<div class="header"></div>');
+            }
+
+            // Add contact section
+            if (data.contact) {
+            const contactSection = $(`
+                <div class="lInfo contact">
+                <h2>${data.contact.title}</h2>
+                </div>
+            `);
+            
+            data.contact.items.forEach(item => {
+                const itemElement = item.link 
+                ? $(`<div><i class="${item.icon}"></i> <a href="${item.link}" target="_blank">${item.text}</a></div>`)
+                : $(`<div><i class="${item.icon}"></i> ${item.text}</div>`);
+                contactSection.append(itemElement);
+            });
+            
+            container.append(contactSection);
+            }
+
+            // Add education section
+            if (data.education) {
+            const educationSection = $(`
+                <div class="lInfo Education">
+                <h2>${data.education.title}</h2>
+                </div>
+            `);
+            
+            data.education.items.forEach(edu => {
+                const eduElement = $(`
+                <div class="educationGrid">
+                    <div class="Year">${edu.period}</div>
+                    <div class="Degree">${edu.degree}</div>
+                    <div class="educationName">${edu.institution}</div>
+                </div>
+                `);
+                educationSection.append(eduElement);
+            });
+            
+            container.append(educationSection);
+            }
+        }
+
+        // Build right column content
+        buildRightColumn(container, data) {
+            // Add header
+            if (data.header) {
+            const nameParts = data.header.name.split(data.header.highlight);
+            const headerElement = $(`
+                <div class="header">
+                <h1>${nameParts[0]}<span>${data.header.highlight}</span>${nameParts[1] || ''}</h1>
+                <p>${data.header.title}</p>
+                </div>
+            `);
+            container.append(headerElement);
+            }
+
+            // Add about section
+            if (data.about) {
+            const aboutSection = $(`
+                <div class="rInfo aboutMe">
+                <h2>${data.about.title}</h2>
+                <p>${data.about.content}</p>
+                </div>
+            `);
+            container.append(aboutSection);
+            }
+
+            // Add experience section
+            if (data.experience) {
+            const experienceSection = $(`
+                <div class="rInfo Experience">
+                <h2>${data.experience.title}</h2>
+                </div>
+            `);
+            
+            data.experience.items.forEach(exp => {
+                const expElement = $(`
+                <div class="experienceGrid">
+                    <div class="experienceTop">
+                    <div class="Year">${exp.period}</div>
+                    <div class="experienceName">
+                        <span class="companyName">${exp.company}</span> |
+                        <span class="experienceRole">${exp.role}</span>
+                    </div>
+                    </div>
+                    <div class="experienceDescription">
+                    ${exp.description}
+                    </div>
+                </div>
+                `);
+                experienceSection.append(expElement);
+            });
+            
+            container.append(experienceSection);
+            }
+
+            // Add skills section
+            if (data.skills) {
+            const skillsSection = $(`
+                <div class="lInfo skills">
+                <h2>${data.skills.title}</h2>
+                <ul></ul>
+                </div>
+            `);
+            
+            const skillsList = skillsSection.find('ul');
+            data.skills.items.forEach(skill => {
+                skillsList.append(`<li>${skill}</li>`);
+            });
+            
+            container.append(skillsSection);
+            }
+
+            // Add hobbies section
+            if (data.hobbies) {
+            const hobbiesSection = $(`
+                <div class="rInfo Hobbies">
+                <h2>${data.hobbies.title}</h2>
+                <ul></ul>
+                </div>
+            `);
+            
+            const hobbiesList = hobbiesSection.find('ul');
+            data.hobbies.items.forEach(hobby => {
+                hobbiesList.append(`<li>${hobby}</li>`);
+            });
+            
+            container.append(hobbiesSection);
+            }
+        }
+
+        // Add new page dynamically
+        addPage(pageData) {
+            const pageIndex = this.resumeData.pages.length + 1;
+            this.resumeData.pages.push(pageData);
+            const newPage = this.createPage(pageData, pageIndex);
+            this.container.append(newPage);
+            this.adjustScaling();
+        }
+
+        // Update existing page
+        updatePage(pageIndex, pageData) {
+            this.resumeData.pages[pageIndex - 1] = pageData;
+            $(`#page-${pageIndex}`).remove();
+            const updatedPage = this.createPage(pageData, pageIndex);
+            
+            // Insert at correct position
+            if (pageIndex === 1) {
+            this.container.prepend(updatedPage);
+            } else {
+            $(`#page-${pageIndex - 1}`).after(updatedPage);
+            }
+            
+            this.adjustScaling();
+        }
+
+        // Adjust scaling for responsive design
+        adjustScaling() {
+            const section = $('.Page');
+            const windowWidth = $(window).width();
+            const sectionWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--a4-width')) / 2.4;
+            
+            let scale = (windowWidth - 40) / sectionWidth;
+            if (scale > 1) scale = 1;
+            
+            section.css('transform', `scale(${scale})`);
+            section.css('transform-origin', 'top center');
+        }
+
+        // Setup event listeners
+        setupEventListeners() {
+            $(window).on('load resize', () => this.adjustScaling());
+        }
+        }
+
+
+                
         $('#download-resume').on('click', (e) => {
             e.stopPropagation();
             $('.downloadWrapper ul').toggleClass('expand');
@@ -406,6 +662,16 @@
         }
 
         $(window).on('load resize', resizePage);
+
+         $(document).ready(function() {
+            // Initialize resume builder
+            const resumeBuilder = new ResumeBuilder(resumeData);
+            resumeBuilder.init();
+            
+            // Initialize download functionality
+            const downloadManager = new DownloadManager();
+            downloadManager.init();
+        });
     </script> 
 
 </body>
