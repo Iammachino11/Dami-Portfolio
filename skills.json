@@ -32,14 +32,14 @@
       "category": "frontend",
       "icon": "images/React-icon.svg",
       "name": "React",
-      "percentage": 5,
+      "percentage": 35,
       "description": "Basic understanding of React fundamentals, including components, props, and state, with a room for further learning and development"
     },
     {
       "category": "frontend",
       "icon": "images/typeScript-Icon.svg",
       "name": "TypeScript",
-      "percentage": 40,
+      "percentage": 50,
       "description": "Familiar with TypeScript basics, including type annotations, interfaces, and classes, with a growing understanding of its benefits for large-scale applications"
     },
     {

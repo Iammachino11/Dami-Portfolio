@@ -421,7 +421,6 @@ function initializeSkills() {
         startAutoChange();
     }
 
-// Replace the current expand button handler with this:
 $('#expand-thumb-btn').on('click', function(){
     const $thumbnailContainer = $('.thumbnailContainer');
     const $expandIcon = $('#expand-icon');
@@ -471,22 +470,6 @@ $(document).on('click', '.viewProjImgBtn button', function() {
     $('#close-modal-btn').on('click', ()=>{
         stopAutoChange();
         $('.viewProjImgModal').fadeOut();
-    });
-    $('#expand-thumb-btn').on('click', function(){
-        const $thumbnailContainer = $('.thumbnailContainer');
-        const $expandIcon = $('#expand-icon');
-        const $compressIcon = $('#compress-icon');
-        
-        $thumbnailContainer.toggleClass('expand');
-        
-        // Toggle icons based on state
-        if ($thumbnailContainer.hasClass('expand')) {
-            $expandIcon.hide();
-            $compressIcon.show();
-        } else {
-            $expandIcon.show();
-            $compressIcon.hide();
-        }
     });
 
     $('#next-image-btn').on('click', nextImage);
